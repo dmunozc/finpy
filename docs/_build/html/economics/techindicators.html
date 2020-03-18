@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Technical Indicators &mdash; finmarketpy 0.11.3 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Network Analysis" href="../network_analysis/index.html" />
+    <link rel="prev" title="Seasonality" href="seasonality.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> finmarketpy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../backtest/index.html">Backtests</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Economics</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="eventstudy.html">Event Study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marketliquidity.html">Market Liquidity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="report.html">Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seasonality.html">Seasonality</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Technical Indicators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../network_analysis/index.html">Network Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/index.html">Util</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">finmarketpy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Economics</a> &raquo;</li>
+        
+      <li>Technical Indicators</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/economics/techindicators.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-finmarketpy.economics.techindicator">
+<span id="technical-indicators"></span><span id="tech-indicators"></span><h1>Technical Indicators<a class="headerlink" href="#module-finmarketpy.economics.techindicator" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="finmarketpy.economics.techindicator.TechIndicator">
+<em class="property">class </em><code class="sig-prename descclassname">finmarketpy.economics.techindicator.</code><code class="sig-name descname">TechIndicator</code><a class="headerlink" href="#finmarketpy.economics.techindicator.TechIndicator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates various technical indicators and associated trading signals.</p>
+<p>Signals can also be filtered to allow only longs or short and also to flip signals.</p>
+<p>It is possible to create subclasses of
+TechIndicator to implement your own custom signals and technical indicators.</p>
+<dl class="simple">
+<dt>At present it implements the following technical indicators (and associated signals)</dt><dd><p>SMA - simple moving averages - buy if spot above SMA, sell if below)
+EMA - exponential moving average - buy if spot spot above EMA, sell if below)
+ROC - rate of change - buy if rate of change positive, sell if negative
+polarity - buy if input is positive, sell if negative
+SMA2 - double simple moving average - buy if faster SMA above slower SMA, sell if below
+RSI - relative strength indicator - buy if RSI exits overbought, sell if RSI exits oversold
+BB - Bollinger bands - buy if spot above upper Bollinger band, sell if below lower Bollinger Band
+ATR - Average True Range - useful for creating stop/take profit levels. Does no create a signal
+VWAP - Volume Weighted Average Price - determine the general direction of intraday prices. Does not create a signal
+long_only - long only signal</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="finmarketpy.economics.techindicator.TechIndicator.create_custom_tech_ind">
+<code class="sig-name descname">create_custom_tech_ind</code><span class="sig-paren">(</span><em class="sig-param">data_frame_non_nan</em>, <em class="sig-param">name</em>, <em class="sig-param">tech_params</em>, <em class="sig-param">data_frame_non_nan_early</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.techindicator.TechIndicator.create_custom_tech_ind" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.techindicator.TechIndicator.create_tech_ind">
+<code class="sig-name descname">create_tech_ind</code><span class="sig-paren">(</span><em class="sig-param">data_frame_non_nan</em>, <em class="sig-param">name</em>, <em class="sig-param">tech_params</em>, <em class="sig-param">data_frame_non_nan_early=None</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.techindicator.TechIndicator.create_tech_ind" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.techindicator.TechIndicator.get_signal">
+<code class="sig-name descname">get_signal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.techindicator.TechIndicator.get_signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.techindicator.TechIndicator.get_techind">
+<code class="sig-name descname">get_techind</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.techindicator.TechIndicator.get_techind" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="finmarketpy.economics.techindicator.TechParams">
+<em class="property">class </em><code class="sig-prename descclassname">finmarketpy.economics.techindicator.</code><code class="sig-name descname">TechParams</code><span class="sig-paren">(</span><em class="sig-param">fillna=True</em>, <em class="sig-param">atr_period=14</em>, <em class="sig-param">sma_period=20</em>, <em class="sig-param">green_n=4</em>, <em class="sig-param">green_count=9</em>, <em class="sig-param">red_n=2</em>, <em class="sig-param">red_count=13</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.techindicator.TechParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holds parameters for calculation of technical indicators.
+fillna – uses forward fill for filling nas
+atr_period – Used for ATR indicator only
+sma_period – Used for SMA and SMA2 indicators only
+green_n – unused
+green_count – unused
+red_n – unused
+red_count – unused</p>
+<dl class="method">
+<dt id="finmarketpy.economics.techindicator.TechParams.atr_period">
+<em class="property">property </em><code class="sig-name descname">atr_period</code><a class="headerlink" href="#finmarketpy.economics.techindicator.TechParams.atr_period" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.techindicator.TechParams.fillna">
+<em class="property">property </em><code class="sig-name descname">fillna</code><a class="headerlink" href="#finmarketpy.economics.techindicator.TechParams.fillna" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.techindicator.TechParams.green_count">
+<em class="property">property </em><code class="sig-name descname">green_count</code><a class="headerlink" href="#finmarketpy.economics.techindicator.TechParams.green_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.techindicator.TechParams.green_n">
+<em class="property">property </em><code class="sig-name descname">green_n</code><a class="headerlink" href="#finmarketpy.economics.techindicator.TechParams.green_n" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.techindicator.TechParams.only_allow_longs">
+<em class="property">property </em><code class="sig-name descname">only_allow_longs</code><a class="headerlink" href="#finmarketpy.economics.techindicator.TechParams.only_allow_longs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.techindicator.TechParams.only_allow_shorts">
+<em class="property">property </em><code class="sig-name descname">only_allow_shorts</code><a class="headerlink" href="#finmarketpy.economics.techindicator.TechParams.only_allow_shorts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.techindicator.TechParams.red_count">
+<em class="property">property </em><code class="sig-name descname">red_count</code><a class="headerlink" href="#finmarketpy.economics.techindicator.TechParams.red_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.techindicator.TechParams.red_n">
+<em class="property">property </em><code class="sig-name descname">red_n</code><a class="headerlink" href="#finmarketpy.economics.techindicator.TechParams.red_n" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.techindicator.TechParams.sma_period">
+<em class="property">property </em><code class="sig-name descname">sma_period</code><a class="headerlink" href="#finmarketpy.economics.techindicator.TechParams.sma_period" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../network_analysis/index.html" class="btn btn-neutral float-right" title="Network Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="seasonality.html" class="btn btn-neutral float-left" title="Seasonality" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Cuemacro
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

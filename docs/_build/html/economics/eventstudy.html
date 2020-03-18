@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Event Study &mdash; finmarketpy 0.11.3 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Market Liquidity" href="marketliquidity.html" />
+    <link rel="prev" title="Economics" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> finmarketpy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../backtest/index.html">Backtests</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Economics</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Event Study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marketliquidity.html">Market Liquidity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="report.html">Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seasonality.html">Seasonality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="techindicators.html">Technical Indicators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../network_analysis/index.html">Network Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/index.html">Util</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">finmarketpy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Economics</a> &raquo;</li>
+        
+      <li>Event Study</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/economics/eventstudy.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-finmarketpy.economics.eventstudy">
+<span id="id1"></span><span id="event-study"></span><h1>Event Study<a class="headerlink" href="#module-finmarketpy.economics.eventstudy" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="finmarketpy.economics.eventstudy.EventStudy">
+<em class="property">class </em><code class="sig-prename descclassname">finmarketpy.economics.eventstudy.</code><code class="sig-name descname">EventStudy</code><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventStudy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides functions for doing event studies on price action on an intraday basis and daily basis.</p>
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventStudy.get_economic_event_ret_over_custom_event_day">
+<code class="sig-name descname">get_economic_event_ret_over_custom_event_day</code><span class="sig-paren">(</span><em class="sig-param">data_frame_in</em>, <em class="sig-param">event_dates</em>, <em class="sig-param">name</em>, <em class="sig-param">event</em>, <em class="sig-param">start</em>, <em class="sig-param">end</em>, <em class="sig-param">lagged=False</em>, <em class="sig-param">NYC_cutoff=10</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventStudy.get_economic_event_ret_over_custom_event_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventStudy.get_intraday_moves_over_custom_event">
+<code class="sig-name descname">get_intraday_moves_over_custom_event</code><span class="sig-paren">(</span><em class="sig-param">data_frame_rets</em>, <em class="sig-param">ef_time_frame</em>, <em class="sig-param">vol=False</em>, <em class="sig-param">minute_start=5</em>, <em class="sig-param">mins=180</em>, <em class="sig-param">min_offset=0</em>, <em class="sig-param">create_index=False</em>, <em class="sig-param">resample=False</em>, <em class="sig-param">freq='minutes'</em>, <em class="sig-param">cumsum=True</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventStudy.get_intraday_moves_over_custom_event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventStudy.get_surprise_against_intraday_moves_over_custom_event">
+<code class="sig-name descname">get_surprise_against_intraday_moves_over_custom_event</code><span class="sig-paren">(</span><em class="sig-param">data_frame_cross_orig, ef_time_frame, cross, event_fx, event_name, start, end, offset_list=[1, 5, 30, 60], add_surprise=False, surprise_field='survey-average', freq='minutes'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventStudy.get_surprise_against_intraday_moves_over_custom_event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory">
+<em class="property">class </em><code class="sig-prename descclassname">finmarketpy.economics.eventstudy.</code><code class="sig-name descname">EventsFactory</code><span class="sig-paren">(</span><em class="sig-param">df=None</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides methods to fetch data on economic data events and to perform basic event studies for market data around
+these events. Note, requires a file of input of the following (transposed as columns!) - we give an example for
+NFP released on 7 Feb 2003 (note, that release-date-time-full, need not be fully aligned by row).</p>
+<p>USD-US Employees on Nonfarm Payrolls Total MoM Net Change SA.Date                   31/01/2003 00:00
+USD-US Employees on Nonfarm Payrolls Total MoM Net Change SA.close                  xyz
+USD-US Employees on Nonfarm Payrolls Total MoM Net Change SA.actual-release         143
+USD-US Employees on Nonfarm Payrolls Total MoM Net Change SA.survey-median          xyz
+USD-US Employees on Nonfarm Payrolls Total MoM Net Change SA.survey-average         xyz
+USD-US Employees on Nonfarm Payrolls Total MoM Net Change SA.survey-high            xyz
+USD-US Employees on Nonfarm Payrolls Total MoM Net Change SA.survey-low                 xyz
+USD-US Employees on Nonfarm Payrolls Total MoM Net Change SA.survey-high.1          xyz
+USD-US Employees on Nonfarm Payrolls Total MoM Net Change SA.number-observations    xyz
+USD-US Employees on Nonfarm Payrolls Total MoM Net Change SA.first-revision         185
+USD-US Employees on Nonfarm Payrolls Total MoM Net Change SA.first-revision-date    20030307
+USD-US Employees on Nonfarm Payrolls Total MoM Net Change SA.release-dt                 20030207
+USD-US Employees on Nonfarm Payrolls Total MoM Net Change SA.release-date-time-full 08/01/1999 13:30</p>
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.create_event_desciptor_field">
+<code class="sig-name descname">create_event_desciptor_field</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">event</em>, <em class="sig-param">field</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.create_event_desciptor_field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.dump_economic_events_csv">
+<code class="sig-name descname">dump_economic_events_csv</code><span class="sig-paren">(</span><em class="sig-param">path</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.dump_economic_events_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.get_all_economic_events">
+<code class="sig-name descname">get_all_economic_events</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.get_all_economic_events" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.get_all_economic_events_date_time">
+<code class="sig-name descname">get_all_economic_events_date_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.get_all_economic_events_date_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.get_daily_moves_over_event">
+<code class="sig-name descname">get_daily_moves_over_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.get_daily_moves_over_event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.get_economic_event_date">
+<code class="sig-name descname">get_economic_event_date</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">event=None</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.get_economic_event_date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.get_economic_event_date_time">
+<code class="sig-name descname">get_economic_event_date_time</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">event=None</em>, <em class="sig-param">csv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.get_economic_event_date_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.get_economic_event_date_time_dataframe">
+<code class="sig-name descname">get_economic_event_date_time_dataframe</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">event=None</em>, <em class="sig-param">csv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.get_economic_event_date_time_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.get_economic_event_date_time_fields">
+<code class="sig-name descname">get_economic_event_date_time_fields</code><span class="sig-paren">(</span><em class="sig-param">fields</em>, <em class="sig-param">name</em>, <em class="sig-param">event=None</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.get_economic_event_date_time_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.get_economic_event_ret_over_custom_event_day">
+<code class="sig-name descname">get_economic_event_ret_over_custom_event_day</code><span class="sig-paren">(</span><em class="sig-param">data_frame_in</em>, <em class="sig-param">name</em>, <em class="sig-param">event</em>, <em class="sig-param">start</em>, <em class="sig-param">end</em>, <em class="sig-param">lagged=False</em>, <em class="sig-param">NYC_cutoff=10</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.get_economic_event_ret_over_custom_event_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.get_economic_event_vol_over_event_day">
+<code class="sig-name descname">get_economic_event_vol_over_event_day</code><span class="sig-paren">(</span><em class="sig-param">vol_in</em>, <em class="sig-param">name</em>, <em class="sig-param">event</em>, <em class="sig-param">start</em>, <em class="sig-param">end</em>, <em class="sig-param">realised=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.get_economic_event_vol_over_event_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.get_economic_events">
+<code class="sig-name descname">get_economic_events</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.get_economic_events" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.get_intraday_moves_over_event">
+<code class="sig-name descname">get_intraday_moves_over_event</code><span class="sig-paren">(</span><em class="sig-param">data_frame_rets</em>, <em class="sig-param">cross</em>, <em class="sig-param">event_fx</em>, <em class="sig-param">event_name</em>, <em class="sig-param">start</em>, <em class="sig-param">end</em>, <em class="sig-param">vol</em>, <em class="sig-param">mins=180</em>, <em class="sig-param">min_offset=0</em>, <em class="sig-param">create_index=False</em>, <em class="sig-param">resample=False</em>, <em class="sig-param">freq='minutes'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.get_intraday_moves_over_event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.get_surprise_against_intraday_moves_over_event">
+<code class="sig-name descname">get_surprise_against_intraday_moves_over_event</code><span class="sig-paren">(</span><em class="sig-param">data_frame_cross_orig, cross, event_fx, event_name, start, end, offset_list=[1, 5, 30, 60], add_surprise=False, surprise_field='survey-average'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.get_surprise_against_intraday_moves_over_event" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.harvest_category">
+<code class="sig-name descname">harvest_category</code><span class="sig-paren">(</span><em class="sig-param">category_name</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.harvest_category" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.EventsFactory.load_economic_events">
+<code class="sig-name descname">load_economic_events</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.EventsFactory.load_economic_events" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="finmarketpy.economics.eventstudy.HistEconDataFactory">
+<em class="property">class </em><code class="sig-prename descclassname">finmarketpy.economics.eventstudy.</code><code class="sig-name descname">HistEconDataFactory</code><span class="sig-paren">(</span><em class="sig-param">market_data_generator=None</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.HistEconDataFactory" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="finmarketpy.economics.eventstudy.HistEconDataFactory.get_economic_data_history">
+<code class="sig-name descname">get_economic_data_history</code><span class="sig-paren">(</span><em class="sig-param">start_date</em>, <em class="sig-param">finish_date</em>, <em class="sig-param">country_group</em>, <em class="sig-param">data_type</em>, <em class="sig-param">source='fred'</em>, <em class="sig-param">cache_algo='internet_load_return'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.HistEconDataFactory.get_economic_data_history" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.eventstudy.HistEconDataFactory.grasp_coded_entry">
+<code class="sig-name descname">grasp_coded_entry</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">index</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.eventstudy.HistEconDataFactory.grasp_coded_entry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="marketliquidity.html" class="btn btn-neutral float-right" title="Market Liquidity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Economics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Cuemacro
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

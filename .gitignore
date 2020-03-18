@@ -12,7 +12,6 @@ __pycache__/
 .idea/
 .Python
 env/
-build/
 develop-eggs/
 dist*/
 downloads/
@@ -57,9 +56,6 @@ coverage.xml
 
 # Django stuff:
 *.log
-
-# Sphinx documentation
-docs/_build/
 
 # PyBuilder
 target/

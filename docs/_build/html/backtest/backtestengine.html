@@ -1,0 +1,1084 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Backtest Engine &mdash; finmarketpy 0.11.3 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Backtest Request" href="backtestrequest.html" />
+    <link rel="prev" title="Backtest Comparison" href="backtestcomparison.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> finmarketpy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Backtests</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="backtestcomparison.html">Backtest Comparison</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Backtest Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backtestrequest.html">Backtest Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tradeanalysis.html">Trade Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../economics/index.html">Economics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network_analysis/index.html">Network Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/index.html">Util</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">finmarketpy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Backtests</a> &raquo;</li>
+        
+      <li>Backtest Engine</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/backtest/backtestengine.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-finmarketpy.backtest.backtestengine">
+<span id="id1"></span><span id="backtest-engine"></span><h1>Backtest Engine<a class="headerlink" href="#module-finmarketpy.backtest.backtestengine" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="finmarketpy.backtest.backtestengine.Backtest">
+<em class="property">class </em><code class="sig-prename descclassname">finmarketpy.backtest.backtestengine.</code><code class="sig-name descname">Backtest</code><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conducts backtest for strategies trading assets. Assumes we have an input of total returns. Reports historical return statistics
+and returns time series.</p>
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.backtest_output">
+<code class="sig-name descname">backtest_output</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.backtest_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.calculate_diagnostic_trading_PnL">
+<code class="sig-name descname">calculate_diagnostic_trading_PnL</code><span class="sig-paren">(</span><em class="sig-param">asset_a_df</em>, <em class="sig-param">signal_df</em>, <em class="sig-param">further_df=[]</em>, <em class="sig-param">further_df_labels=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.calculate_diagnostic_trading_PnL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates P&amp;L table which can be used for debugging purposes,</p>
+<p>The table is populated with asset, signal and further dataframes provided by the user, can be used to check signalling methodology.
+It does not apply parameters such as transaction costs, vol adjusment and so on.
+Returns DataFrame with asset, trading signals and returns of the trading strategy for diagnostic purposes</p>
+<dl class="simple">
+<dt>asset_a_df: DataFrame</dt><dd><p>Asset prices</p>
+</dd>
+<dt>signal_df: DataFrame</dt><dd><p>Trade signals (typically +1, -1, 0 etc)</p>
+</dd>
+<dt>further_df: DataFrame</dt><dd><p>Further dataframes user wishes to output in the diagnostic output (typically inputs for the signals)</p>
+</dd>
+<dt>further_df_labels</dt><dd><p>Labels to append to the further dataframes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.calculate_exposures">
+<code class="sig-name descname">calculate_exposures</code><span class="sig-paren">(</span><em class="sig-param">portfolio_signal</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.calculate_exposures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates time series for the total longs, short, net and absolute exposure on an aggregated portfolio basis.
+Returns DataFrame (list)</p>
+<dl class="simple">
+<dt>portfolio_signal: DataFrame</dt><dd><p>Signals for each asset in the portfolio after all weighting, portfolio &amp; signal level volatility adjustments</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.calculate_trading_PnL">
+<code class="sig-name descname">calculate_trading_PnL</code><span class="sig-paren">(</span><em class="sig-param">br</em>, <em class="sig-param">asset_a_df</em>, <em class="sig-param">signal_df</em>, <em class="sig-param">contract_value_df</em>, <em class="sig-param">run_in_parallel</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.calculate_trading_PnL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates P&amp;L of a trading strategy and statistics to be retrieved later</p>
+<p>Calculates the P&amp;L for each asset/signal combination and also for the finally strategy applying appropriate
+weighting in the portfolio, depending on predefined parameters, for example:</p>
+<blockquote>
+<div><p>static weighting for each asset
+static weighting for each asset + vol weighting for each asset
+static weighting for each asset + vol weighting for each asset + vol weighting for the portfolio</p>
+</div></blockquote>
+<dl class="simple">
+<dt>br: BacktestRequest</dt><dd><p>Parameters for the backtest specifying start date, finish data, transaction costs etc.</p>
+</dd>
+<dt>asset_a_df: pandas.DataFrame</dt><dd><p>Asset prices to be traded</p>
+</dd>
+<dt>signal_df: pandas.DataFrame</dt><dd><p>Signals for the trading strategy</p>
+</dd>
+<dt>contract_value_df: pandas.DataFrame</dt><dd><p>Daily size of contracts</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.components_pnl">
+<code class="sig-name descname">components_pnl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.components_pnl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets P&amp;L returns of all the individual subcomponents of the model (after portfolio level leverage is applied)</p>
+<p>pandas.Dataframe</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.components_pnl_cum">
+<code class="sig-name descname">components_pnl_cum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.components_pnl_cum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets P&amp;L as a cumulative time series of individual assets (after portfolio level leverage adjustments)</p>
+<p>pandas.DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.components_pnl_desc">
+<code class="sig-name descname">components_pnl_desc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.components_pnl_desc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets P&amp;L of individual components as return statistics in a string format</p>
+<p>str</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.components_pnl_ret_stats">
+<code class="sig-name descname">components_pnl_ret_stats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.components_pnl_ret_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets P&amp;L return statistics of individual strategies as class to be queried</p>
+<p>TimeSeriesDesc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.components_pnl_trades">
+<code class="sig-name descname">components_pnl_trades</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.components_pnl_trades" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets P&amp;L of each individual trade per signal</p>
+<p>pandas.Dataframe</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.create_portfolio_weights">
+<code class="sig-name descname">create_portfolio_weights</code><span class="sig-paren">(</span><em class="sig-param">br</em>, <em class="sig-param">_pnl</em>, <em class="sig-param">method='mean'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.create_portfolio_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates P&amp;L of a trading strategy and statistics to be retrieved later</p>
+<dl class="simple">
+<dt>br<span class="classifier">BacktestRequest</span></dt><dd><p>Parameters for the backtest specifying start date, finish data, transaction costs etc.</p>
+</dd>
+<dt>_pnl<span class="classifier">pandas.DataFrame</span></dt><dd><p>Contains the daily P&amp;L for the portfolio</p>
+</dd>
+<dt>method<span class="classifier">String</span></dt><dd><p>‘mean’ - assumes equal weighting for each signal
+‘weighted’ - can use predefined user weights (eg. if we assign weighting of 1, 1, 0.5, for three signals
+the third signal will have a weighting of half versus the others)</p>
+</dd>
+<dt>weights<span class="classifier">dict</span></dt><dd><p>Portfolio weights</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>pandas.DataFrame</dt><dd><p>Contains the portfolio weights</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.individual_leverage">
+<code class="sig-name descname">individual_leverage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.individual_leverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets leverage for each asset historically</p>
+<p>pandas.DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.pnl">
+<code class="sig-name descname">pnl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.pnl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets P&amp;L returns of all the individual sub_components of the model (before any portfolio level leverage is applied)</p>
+<p>pandas.Dataframe</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.pnl_cum">
+<code class="sig-name descname">pnl_cum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.pnl_cum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets P&amp;L as a cumulative time series of individual assets</p>
+<p>pandas.DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.pnl_desc">
+<code class="sig-name descname">pnl_desc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.pnl_desc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets P&amp;L return statistics in a string format</p>
+<p>str</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.pnl_ret_stats">
+<code class="sig-name descname">pnl_ret_stats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.pnl_ret_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets P&amp;L return statistics of individual strategies as class to be queried</p>
+<p>TimeSeriesDesc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.pnl_trades">
+<code class="sig-name descname">pnl_trades</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.pnl_trades" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets P&amp;L of each individual trade per signal</p>
+<p>pandas.Dataframe</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_cum">
+<code class="sig-name descname">portfolio_cum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_cum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets P&amp;L as a cumulative time series of portfolio</p>
+<p>pandas.DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_leverage">
+<code class="sig-name descname">portfolio_leverage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_leverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the leverage for the portfolio</p>
+<p>pandas.DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_net_exposure">
+<code class="sig-name descname">portfolio_net_exposure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_net_exposure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total net exposure of the portfolio</p>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_net_exposure_notional">
+<code class="sig-name descname">portfolio_net_exposure_notional</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_net_exposure_notional" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total net exposure of the portfolio scaled by notional</p>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_pnl">
+<code class="sig-name descname">portfolio_pnl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_pnl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets portfolio returns in raw form (ie. not indexed into cumulative form)</p>
+<p>pandas.DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_pnl_desc">
+<code class="sig-name descname">portfolio_pnl_desc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_pnl_desc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets P&amp;L return statistics of portfolio as string</p>
+<p>pandas.DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_pnl_ret_stats">
+<code class="sig-name descname">portfolio_pnl_ret_stats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_pnl_ret_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets P&amp;L return statistics of portfolio as class to be queried</p>
+<p>RetStats</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_signal">
+<code class="sig-name descname">portfolio_signal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_signal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the signals (with individual leverage &amp; portfolio leverage) for each asset, which
+equates to what we would trade in practice</p>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_signal_contracts">
+<code class="sig-name descname">portfolio_signal_contracts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_signal_contracts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the signals (with individual leverage &amp; portfolio leverage) for each asset, which
+equates to what we would have a positions in practice, scaled by a notional amount and into contract sizes (eg. for futures)
+which we need to specify in another dataframe</p>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_signal_notional">
+<code class="sig-name descname">portfolio_signal_notional</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_signal_notional" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the signals (with individual leverage &amp; portfolio leverage) for each asset, which
+equates to what we would have a positions in practice, scaled by a notional amount we have already specified</p>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_total_exposure">
+<code class="sig-name descname">portfolio_total_exposure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_total_exposure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total absolute exposure of the portfolio</p>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_total_exposure_notional">
+<code class="sig-name descname">portfolio_total_exposure_notional</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_total_exposure_notional" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total absolute exposure of the portfolio scaled by notional</p>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_total_longs">
+<code class="sig-name descname">portfolio_total_longs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_total_longs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total long exposure in the portfolio</p>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_total_longs_notional">
+<code class="sig-name descname">portfolio_total_longs_notional</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_total_longs_notional" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total long exposure in the portfolio scaled by notional</p>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_total_shorts">
+<code class="sig-name descname">portfolio_total_shorts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_total_shorts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total short exposure in the portfolio</p>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_total_shorts_notional">
+<code class="sig-name descname">portfolio_total_shorts_notional</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_total_shorts_notional" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total short exposure in the portfolio scaled by notional</p>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_trade">
+<code class="sig-name descname">portfolio_trade</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_trade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the trades (with individual leverage &amp; portfolio leverage) for each asset, which
+we’d need to execute</p>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_trade_contracts">
+<code class="sig-name descname">portfolio_trade_contracts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_trade_contracts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the trades (with individual leverage &amp; portfolio leverage) for each asset, which
+we’d need to execute, scaled by a notional amount we have already specified and into contract sizes (eg. for futures)
+which we need to specify in another dataframe</p>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_trade_no">
+<code class="sig-name descname">portfolio_trade_no</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_trade_no" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets number of trades for each signal in the backtest (after both signal and portfolio level vol adjustment)</p>
+<p>pandas.Dataframe</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_trade_notional">
+<code class="sig-name descname">portfolio_trade_notional</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_trade_notional" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the trades (with individual leverage &amp; portfolio leverage) for each asset, which
+we’d need to execute, scaled by a notional amount we have already specified</p>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.portfolio_trade_notional_sizes">
+<code class="sig-name descname">portfolio_trade_notional_sizes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.portfolio_trade_notional_sizes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the number of trades (with individual leverage &amp; portfolio leverage) for each asset, which
+we’d need to execute, scaled by a notional amount we have already specified</p>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.signal">
+<code class="sig-name descname">signal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.signal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets signal for each asset (with individual leverage, but excluding portfolio leverage constraints) for each asset</p>
+<p>pandas.DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.Backtest.trade_no">
+<code class="sig-name descname">trade_no</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.Backtest.trade_no" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets number of trades for each signal in the backtest (before</p>
+<p>pandas.Dataframe</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="finmarketpy.backtest.backtestengine.PortfolioModel">
+<em class="property">class </em><code class="sig-prename descclassname">finmarketpy.backtest.backtestengine.</code><code class="sig-name descname">PortfolioModel</code><a class="headerlink" href="#finmarketpy.backtest.backtestengine.PortfolioModel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="finmarketpy.backtest.backtestengine.RiskEngine">
+<em class="property">class </em><code class="sig-prename descclassname">finmarketpy.backtest.backtestengine.</code><code class="sig-name descname">RiskEngine</code><a class="headerlink" href="#finmarketpy.backtest.backtestengine.RiskEngine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjusts signal weighting according to risk constraints (volatility targeting and position limit constraints)</p>
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.RiskEngine.calculate_leverage_factor">
+<code class="sig-name descname">calculate_leverage_factor</code><span class="sig-paren">(</span><em class="sig-param">returns_df</em>, <em class="sig-param">vol_target</em>, <em class="sig-param">vol_max_leverage</em>, <em class="sig-param">vol_periods=60</em>, <em class="sig-param">vol_obs_in_year=252</em>, <em class="sig-param">vol_rebalance_freq='BM'</em>, <em class="sig-param">resample_freq=None</em>, <em class="sig-param">resample_type='mean'</em>, <em class="sig-param">returns=True</em>, <em class="sig-param">period_shift=0</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.RiskEngine.calculate_leverage_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the time series of leverage for a specified vol target</p>
+<dl class="simple">
+<dt>returns_df<span class="classifier">DataFrame</span></dt><dd><p>Asset returns</p>
+</dd>
+<dt>vol_target<span class="classifier">float</span></dt><dd><p>vol target for assets</p>
+</dd>
+<dt>vol_max_leverage<span class="classifier">float</span></dt><dd><p>maximum leverage allowed</p>
+</dd>
+<dt>vol_periods<span class="classifier">int</span></dt><dd><p>number of periods to calculate volatility</p>
+</dd>
+<dt>vol_obs_in_year<span class="classifier">int</span></dt><dd><p>number of observations in the year</p>
+</dd>
+<dt>vol_rebalance_freq<span class="classifier">str</span></dt><dd><p>how often to rebalance</p>
+</dd>
+<dt>resample_type<span class="classifier">str</span></dt><dd><p>do we need to resample the underlying data first? (eg. have we got intraday data?)</p>
+</dd>
+<dt>returns<span class="classifier">boolean</span></dt><dd><p>is this returns time series or prices?</p>
+</dd>
+<dt>period_shift<span class="classifier">int</span></dt><dd><p>should we delay the signal by a number of periods?</p>
+</dd>
+</dl>
+<p>pandas.Dataframe</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.RiskEngine.calculate_position_clip_adjustment">
+<code class="sig-name descname">calculate_position_clip_adjustment</code><span class="sig-paren">(</span><em class="sig-param">portfolio_net_exposure</em>, <em class="sig-param">portfolio_total_exposure</em>, <em class="sig-param">br</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.RiskEngine.calculate_position_clip_adjustment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the leverage adjustment that needs to be made in the portfolio such that either the net exposure or
+the absolute exposure fits within predefined limits</p>
+<dl class="simple">
+<dt>portfolio_net_exposure<span class="classifier">DataFrame</span></dt><dd><p>Net exposure of the whole portfolio</p>
+</dd>
+<dt>portfolio_total_exposure<span class="classifier">DataFrame</span></dt><dd><p>Absolute exposure of the whole portfolio</p>
+</dd>
+<dt>br<span class="classifier">BacktestRequest</span></dt><dd><p>Includes parameters for setting position limits</p>
+</dd>
+</dl>
+<p>DataFrame</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.RiskEngine.calculate_vol_adjusted_index_from_prices">
+<code class="sig-name descname">calculate_vol_adjusted_index_from_prices</code><span class="sig-paren">(</span><em class="sig-param">prices_df</em>, <em class="sig-param">br</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.RiskEngine.calculate_vol_adjusted_index_from_prices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjusts an index of prices for a vol target</p>
+<dl class="simple">
+<dt>br<span class="classifier">BacktestRequest</span></dt><dd><p>Parameters for the backtest specifying start date, finish data, transaction costs etc.</p>
+</dd>
+<dt>asset_a_df<span class="classifier">pandas.DataFrame</span></dt><dd><p>Asset prices to be traded</p>
+</dd>
+</dl>
+<p>pandas.Dataframe containing vol adjusted index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.RiskEngine.calculate_vol_adjusted_returns">
+<code class="sig-name descname">calculate_vol_adjusted_returns</code><span class="sig-paren">(</span><em class="sig-param">returns_df</em>, <em class="sig-param">br</em>, <em class="sig-param">returns=True</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.RiskEngine.calculate_vol_adjusted_returns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjusts returns for a vol target</p>
+<dl class="simple">
+<dt>br<span class="classifier">BacktestRequest</span></dt><dd><p>Parameters for the backtest specifying start date, finish data, transaction costs etc.</p>
+</dd>
+<dt>returns_a_df<span class="classifier">pandas.DataFrame</span></dt><dd><p>Asset returns to be traded</p>
+</dd>
+</dl>
+<p>pandas.DataFrame</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel">
+<em class="property">class </em><code class="sig-prename descclassname">finmarketpy.backtest.backtestengine.</code><code class="sig-name descname">TradingModel</code><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract class which wraps around Backtest, providing convenient functions for analaysis. Implement your own
+subclasses of this for your own strategy. See tradingmodelfxtrend_example.py for a simple implementation of a
+FX trend following strategy.</p>
+<dl class="attribute">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.CHART_SOURCE">
+<code class="sig-name descname">CHART_SOURCE</code><em class="property"> = 'Web'</em><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.CHART_SOURCE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.CHART_STYLE">
+<code class="sig-name descname">CHART_STYLE</code><em class="property"> = &lt;chartpy.style.Style object&gt;</em><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.CHART_STYLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.DEFAULT_PLOT_ENGINE">
+<code class="sig-name descname">DEFAULT_PLOT_ENGINE</code><em class="property"> = 'matplotlib'</em><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.DEFAULT_PLOT_ENGINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.DUMP_CSV">
+<code class="sig-name descname">DUMP_CSV</code><em class="property"> = ''</em><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.DUMP_CSV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.DUMP_PATH">
+<code class="sig-name descname">DUMP_PATH</code><em class="property"> = '20200316 '</em><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.DUMP_PATH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.SAVE_FIGURES">
+<code class="sig-name descname">SAVE_FIGURES</code><em class="property"> = True</em><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.SAVE_FIGURES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.SCALE_FACTOR">
+<code class="sig-name descname">SCALE_FACTOR</code><em class="property"> = 3</em><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.SCALE_FACTOR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.SHOW_CHARTS">
+<code class="sig-name descname">SHOW_CHARTS</code><em class="property"> = True</em><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.SHOW_CHARTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.SHOW_TITLES">
+<code class="sig-name descname">SHOW_TITLES</code><em class="property"> = True</em><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.SHOW_TITLES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.compare_strategy_vs_benchmark">
+<code class="sig-name descname">compare_strategy_vs_benchmark</code><span class="sig-paren">(</span><em class="sig-param">br</em>, <em class="sig-param">strategy_df</em>, <em class="sig-param">benchmark_df</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.compare_strategy_vs_benchmark" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compares the trading strategy we are backtesting against a benchmark</p>
+<dl class="simple">
+<dt>br<span class="classifier">BacktestRequest</span></dt><dd><p>Parameters for backtest such as start and finish dates</p>
+</dd>
+<dt>strategy_df<span class="classifier">pandas.DataFrame</span></dt><dd><p>Strategy time series</p>
+</dd>
+<dt>benchmark_df<span class="classifier">pandas.DataFrame</span></dt><dd><p>Benchmark time series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.construct_individual_strategy">
+<code class="sig-name descname">construct_individual_strategy</code><span class="sig-paren">(</span><em class="sig-param">br</em>, <em class="sig-param">spot_df</em>, <em class="sig-param">spot_df2</em>, <em class="sig-param">asset_df</em>, <em class="sig-param">tech_params</em>, <em class="sig-param">key</em>, <em class="sig-param">contract_value_df</em>, <em class="sig-param">run_in_parallel</em>, <em class="sig-param">compress_output</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.construct_individual_strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combines the signal with asset returns to find the returns of an individual strategy</p>
+<dl class="simple">
+<dt>br<span class="classifier">BacktestRequest</span></dt><dd><p>Parameters for backtest such as start and finish dates</p>
+</dd>
+<dt>spot_df<span class="classifier">pandas.DataFrame</span></dt><dd><p>Market time series for generating signals</p>
+</dd>
+<dt>spot_df2<span class="classifier">pandas.DataFrame</span></dt><dd><p>Secondary Market time series for generated signals (can be of different frequency)</p>
+</dd>
+<dt>tech_params<span class="classifier">TechParams</span></dt><dd><p>Parameters for generating signals</p>
+</dd>
+<dt>contract_value_df<span class="classifier">pandas.DataFrame</span></dt><dd><p>Dataframe with the contract sizes for each asset</p>
+</dd>
+</dl>
+<p>portfolio_cum : pandas.DataFrame
+backtest : Backtest</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.construct_signal">
+<em class="property">abstract </em><code class="sig-name descname">construct_signal</code><span class="sig-paren">(</span><em class="sig-param">spot_df</em>, <em class="sig-param">spot_df2</em>, <em class="sig-param">tech_params</em>, <em class="sig-param">br</em>, <em class="sig-param">run_in_parallel=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.construct_signal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs signal from pre-loaded time series</p>
+<dl class="simple">
+<dt>spot_df<span class="classifier">pandas.DataFrame</span></dt><dd><p>Market time series for generating signals</p>
+</dd>
+<dt>spot_df2<span class="classifier">pandas.DataFrame</span></dt><dd><p>Market time series for generated signals (can be of different frequency)</p>
+</dd>
+<dt>tech_params<span class="classifier">TechParams</span></dt><dd><p>Parameters for generating signals</p>
+</dd>
+<dt>run_in_parallel<span class="classifier">bool</span></dt><dd><p>Allow signal calculation in parallel</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.construct_strategy">
+<code class="sig-name descname">construct_strategy</code><span class="sig-paren">(</span><em class="sig-param">br=None</em>, <em class="sig-param">run_in_parallel=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.construct_strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs the returns for all the strategies which have been specified.</p>
+<p>It gets backtesting parameters from fill_backtest_request (although these can be overwritten
+and then market data from fill_assets</p>
+<dl class="simple">
+<dt>br<span class="classifier">BacktestRequest</span></dt><dd><p>Parameters which define the backtest (for example start date, end date, transaction costs etc.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.individual_leverage">
+<code class="sig-name descname">individual_leverage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.individual_leverage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.load_assets">
+<em class="property">abstract </em><code class="sig-name descname">load_assets</code><span class="sig-paren">(</span><em class="sig-param">br=None</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.load_assets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads time series for the assets to be traded and also for data for generating signals. Can overwrite it
+with our own BacktestRequest.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.load_model">
+<em class="property">static </em><code class="sig-name descname">load_model</code><span class="sig-paren">(</span><em class="sig-param">path</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.load_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the pickle of the saved model.
+:param path: path to pickle.
+:return: TradingModel instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.load_parameters">
+<em class="property">abstract </em><code class="sig-name descname">load_parameters</code><span class="sig-paren">(</span><em class="sig-param">br=None</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.load_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fills parameters for the backtest, such as start-end dates, transaction costs etc. To
+be implemented by subclass. Can overwrite it with our own BacktestRequest.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_individual_leverage">
+<code class="sig-name descname">plot_individual_leverage</code><span class="sig-paren">(</span><em class="sig-param">strip</em>, <em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em>, <em class="sig-param">resample='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_individual_leverage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_components_pnl">
+<code class="sig-name descname">plot_strategy_components_pnl</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em>, <em class="sig-param">resample='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_components_pnl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_components_pnl_drawdowns">
+<code class="sig-name descname">plot_strategy_components_pnl_drawdowns</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_components_pnl_drawdowns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_components_pnl_ir">
+<code class="sig-name descname">plot_strategy_components_pnl_ir</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_components_pnl_ir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_components_pnl_returns">
+<code class="sig-name descname">plot_strategy_components_pnl_returns</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_components_pnl_returns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_components_pnl_vol">
+<code class="sig-name descname">plot_strategy_components_pnl_vol</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_components_pnl_vol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_components_pnl_yoy">
+<code class="sig-name descname">plot_strategy_components_pnl_yoy</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_components_pnl_yoy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_benchmark_pnl">
+<code class="sig-name descname">plot_strategy_group_benchmark_pnl</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em>, <em class="sig-param">resample='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_benchmark_pnl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_benchmark_pnl_drawdowns">
+<code class="sig-name descname">plot_strategy_group_benchmark_pnl_drawdowns</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_benchmark_pnl_drawdowns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_benchmark_pnl_ir">
+<code class="sig-name descname">plot_strategy_group_benchmark_pnl_ir</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_benchmark_pnl_ir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_benchmark_pnl_returns">
+<code class="sig-name descname">plot_strategy_group_benchmark_pnl_returns</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_benchmark_pnl_returns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_benchmark_pnl_vol">
+<code class="sig-name descname">plot_strategy_group_benchmark_pnl_vol</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_benchmark_pnl_vol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_benchmark_pnl_yoy">
+<code class="sig-name descname">plot_strategy_group_benchmark_pnl_yoy</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_benchmark_pnl_yoy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_leverage">
+<code class="sig-name descname">plot_strategy_group_leverage</code><span class="sig-paren">(</span><em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em>, <em class="sig-param">resample='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_leverage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_pnl_trades">
+<code class="sig-name descname">plot_strategy_group_pnl_trades</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em>, <em class="sig-param">resample='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_group_pnl_trades" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_leverage">
+<code class="sig-name descname">plot_strategy_leverage</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em>, <em class="sig-param">resample='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_leverage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_net_exposures">
+<code class="sig-name descname">plot_strategy_net_exposures</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em>, <em class="sig-param">resample='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_net_exposures" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_net_exposures_notional">
+<code class="sig-name descname">plot_strategy_net_exposures_notional</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em>, <em class="sig-param">resample='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_net_exposures_notional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_pnl">
+<code class="sig-name descname">plot_strategy_pnl</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em>, <em class="sig-param">resample='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_pnl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_signal_proportion">
+<code class="sig-name descname">plot_strategy_signal_proportion</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em>, <em class="sig-param">resample='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_signal_proportion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_signals">
+<code class="sig-name descname">plot_strategy_signals</code><span class="sig-paren">(</span><em class="sig-param">date=None</em>, <em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_signals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_signals_contracts">
+<code class="sig-name descname">plot_strategy_signals_contracts</code><span class="sig-paren">(</span><em class="sig-param">date=None</em>, <em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_signals_contracts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_signals_notional">
+<code class="sig-name descname">plot_strategy_signals_notional</code><span class="sig-paren">(</span><em class="sig-param">date=None</em>, <em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_signals_notional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_total_exposures">
+<code class="sig-name descname">plot_strategy_total_exposures</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em>, <em class="sig-param">resample='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_total_exposures" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_total_exposures_notional">
+<code class="sig-name descname">plot_strategy_total_exposures_notional</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em>, <em class="sig-param">resample='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_total_exposures_notional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_trade_no">
+<code class="sig-name descname">plot_strategy_trade_no</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em>, <em class="sig-param">resample='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_trade_no" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_trades">
+<code class="sig-name descname">plot_strategy_trades</code><span class="sig-paren">(</span><em class="sig-param">date=None</em>, <em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_trades" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_trades_contracts">
+<code class="sig-name descname">plot_strategy_trades_contracts</code><span class="sig-paren">(</span><em class="sig-param">date=None</em>, <em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_trades_contracts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_trades_notional">
+<code class="sig-name descname">plot_strategy_trades_notional</code><span class="sig-paren">(</span><em class="sig-param">date=None</em>, <em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_trades_notional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_trades_notional_sizes">
+<code class="sig-name descname">plot_strategy_trades_notional_sizes</code><span class="sig-paren">(</span><em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_strategy_trades_notional_sizes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.plot_yoy_helper">
+<code class="sig-name descname">plot_yoy_helper</code><span class="sig-paren">(</span><em class="sig-param">ret_stats</em>, <em class="sig-param">title</em>, <em class="sig-param">file_tag</em>, <em class="sig-param">strip=None</em>, <em class="sig-param">silent_plot=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.plot_yoy_helper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.save_model">
+<code class="sig-name descname">save_model</code><span class="sig-paren">(</span><em class="sig-param">path</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.save_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the model instance as as pickle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> – path to pickle.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_benchmark_pnl">
+<code class="sig-name descname">strategy_benchmark_pnl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_benchmark_pnl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_benchmark_pnl_ret_stats">
+<code class="sig-name descname">strategy_benchmark_pnl_ret_stats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_benchmark_pnl_ret_stats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_components_pnl">
+<code class="sig-name descname">strategy_components_pnl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_components_pnl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_components_pnl_ret_stats">
+<code class="sig-name descname">strategy_components_pnl_ret_stats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_components_pnl_ret_stats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_group_benchmark_pnl">
+<code class="sig-name descname">strategy_group_benchmark_pnl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_group_benchmark_pnl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_group_benchmark_pnl_ret_stats">
+<code class="sig-name descname">strategy_group_benchmark_pnl_ret_stats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_group_benchmark_pnl_ret_stats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_group_leverage">
+<code class="sig-name descname">strategy_group_leverage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_group_leverage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_group_pnl">
+<code class="sig-name descname">strategy_group_pnl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_group_pnl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_group_pnl_ret_stats">
+<code class="sig-name descname">strategy_group_pnl_ret_stats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_group_pnl_ret_stats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_group_pnl_trades">
+<code class="sig-name descname">strategy_group_pnl_trades</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_group_pnl_trades" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_leverage">
+<code class="sig-name descname">strategy_leverage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_leverage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_name">
+<code class="sig-name descname">strategy_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_net_exposure">
+<code class="sig-name descname">strategy_net_exposure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_net_exposure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_net_exposure_notional">
+<code class="sig-name descname">strategy_net_exposure_notional</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_net_exposure_notional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_pnl">
+<code class="sig-name descname">strategy_pnl</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_pnl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_pnl_ret_stats">
+<code class="sig-name descname">strategy_pnl_ret_stats</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_pnl_ret_stats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_signal">
+<code class="sig-name descname">strategy_signal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_signal_contracts">
+<code class="sig-name descname">strategy_signal_contracts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_signal_contracts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_signal_notional">
+<code class="sig-name descname">strategy_signal_notional</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_signal_notional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_total_exposure">
+<code class="sig-name descname">strategy_total_exposure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_total_exposure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_total_exposure_notional">
+<code class="sig-name descname">strategy_total_exposure_notional</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_total_exposure_notional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_total_longs">
+<code class="sig-name descname">strategy_total_longs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_total_longs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_total_longs_notional">
+<code class="sig-name descname">strategy_total_longs_notional</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_total_longs_notional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_total_shorts">
+<code class="sig-name descname">strategy_total_shorts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_total_shorts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_total_shorts_notional">
+<code class="sig-name descname">strategy_total_shorts_notional</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_total_shorts_notional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_trade">
+<code class="sig-name descname">strategy_trade</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_trade" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_trade_contracts">
+<code class="sig-name descname">strategy_trade_contracts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_trade_contracts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_trade_notional">
+<code class="sig-name descname">strategy_trade_notional</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_trade_notional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestengine.TradingModel.strategy_trade_notional_sizes">
+<code class="sig-name descname">strategy_trade_notional_sizes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestengine.TradingModel.strategy_trade_notional_sizes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="backtestrequest.html" class="btn btn-neutral float-right" title="Backtest Request" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="backtestcomparison.html" class="btn btn-neutral float-left" title="Backtest Comparison" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Cuemacro
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

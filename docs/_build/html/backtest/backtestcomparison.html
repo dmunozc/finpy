@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Backtest Comparison &mdash; finmarketpy 0.11.3 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Backtest Engine" href="backtestengine.html" />
+    <link rel="prev" title="Backtests" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> finmarketpy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Backtests</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Backtest Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backtestengine.html">Backtest Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backtestrequest.html">Backtest Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tradeanalysis.html">Trade Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../economics/index.html">Economics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network_analysis/index.html">Network Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/index.html">Util</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">finmarketpy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Backtests</a> &raquo;</li>
+        
+      <li>Backtest Comparison</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/backtest/backtestcomparison.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-finmarketpy.backtest.backtestcomparison">
+<span id="id1"></span><span id="backtest-comparison"></span><h1>Backtest Comparison<a class="headerlink" href="#module-finmarketpy.backtest.backtestcomparison" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="finmarketpy.backtest.backtestcomparison.BacktestComparison">
+<em class="property">class </em><code class="sig-prename descclassname">finmarketpy.backtest.backtestcomparison.</code><code class="sig-name descname">BacktestComparison</code><span class="sig-paren">(</span><em class="sig-param">models</em>, <em class="sig-param">ref_index=0</em>, <em class="sig-param">labels=None</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestcomparison.BacktestComparison" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compares different backtest TradingModels
+Each model must have already been run</p>
+<dl class="attribute">
+<dt id="finmarketpy.backtest.backtestcomparison.BacktestComparison.CHART_SOURCE">
+<code class="sig-name descname">CHART_SOURCE</code><em class="property"> = 'Web'</em><a class="headerlink" href="#finmarketpy.backtest.backtestcomparison.BacktestComparison.CHART_SOURCE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="finmarketpy.backtest.backtestcomparison.BacktestComparison.CHART_STYLE">
+<code class="sig-name descname">CHART_STYLE</code><em class="property"> = &lt;chartpy.style.Style object&gt;</em><a class="headerlink" href="#finmarketpy.backtest.backtestcomparison.BacktestComparison.CHART_STYLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="finmarketpy.backtest.backtestcomparison.BacktestComparison.DEFAULT_PLOT_ENGINE">
+<code class="sig-name descname">DEFAULT_PLOT_ENGINE</code><em class="property"> = 'matplotlib'</em><a class="headerlink" href="#finmarketpy.backtest.backtestcomparison.BacktestComparison.DEFAULT_PLOT_ENGINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="finmarketpy.backtest.backtestcomparison.BacktestComparison.SCALE_FACTOR">
+<code class="sig-name descname">SCALE_FACTOR</code><em class="property"> = 3</em><a class="headerlink" href="#finmarketpy.backtest.backtestcomparison.BacktestComparison.SCALE_FACTOR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestcomparison.BacktestComparison.plot_pnl">
+<code class="sig-name descname">plot_pnl</code><span class="sig-paren">(</span><em class="sig-param">diff=True</em>, <em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestcomparison.BacktestComparison.plot_pnl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the profit and loss graph of the model.
+Returns the created Chart</p>
+<dl class="simple">
+<dt>diff</dt><dd><p>if you want to get the profit differences instead of raw values</p>
+</dd>
+<dt>silent_plot</dt><dd><p>if you want to only return the chart created</p>
+</dd>
+<dt>reduce_plot</dt><dd><p>when plotting many points use WebGl version of plotly if specified</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestcomparison.BacktestComparison.plot_sharpe">
+<code class="sig-name descname">plot_sharpe</code><span class="sig-paren">(</span><em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestcomparison.BacktestComparison.plot_sharpe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the sharpe ratio of the model
+Returns the created Chart</p>
+<dl class="simple">
+<dt>silent_plot</dt><dd><p>if you want to only return the chart created</p>
+</dd>
+<dt>reduce_plot:</dt><dd><p>when plotting many points use WebGl version of plotly if specified</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.backtest.backtestcomparison.BacktestComparison.plot_strategy_trade_notional">
+<code class="sig-name descname">plot_strategy_trade_notional</code><span class="sig-paren">(</span><em class="sig-param">diff=True</em>, <em class="sig-param">silent_plot=False</em>, <em class="sig-param">reduce_plot=True</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.backtest.backtestcomparison.BacktestComparison.plot_strategy_trade_notional" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the notional trades of the model
+Returns the created Chart</p>
+<dl class="simple">
+<dt>diff</dt><dd><p>if you want to get the profit differences instead of raw values</p>
+</dd>
+<dt>silent_plot</dt><dd><p>if you want to only return the chart created</p>
+</dd>
+<dt>reduce_plot:</dt><dd><p>when plotting many points use WebGl version of plotly if specified</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="backtestengine.html" class="btn btn-neutral float-right" title="Backtest Engine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Backtests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Cuemacro
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

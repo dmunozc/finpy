@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Seasonality &mdash; finmarketpy 0.11.3 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Technical Indicators" href="techindicators.html" />
+    <link rel="prev" title="Report" href="report.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> finmarketpy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../backtest/index.html">Backtests</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Economics</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="eventstudy.html">Event Study</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marketliquidity.html">Market Liquidity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="report.html">Report</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Seasonality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="techindicators.html">Technical Indicators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../network_analysis/index.html">Network Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util/index.html">Util</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">finmarketpy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Economics</a> &raquo;</li>
+        
+      <li>Seasonality</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/economics/seasonality.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="seasonality">
+<span id="id1"></span><h1>Seasonality<a class="headerlink" href="#seasonality" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-finmarketpy.economics.seasonality"></span><dl class="class">
+<dt id="finmarketpy.economics.seasonality.Seasonality">
+<em class="property">class </em><code class="sig-prename descclassname">finmarketpy.economics.seasonality.</code><code class="sig-name descname">Seasonality</code><a class="headerlink" href="#finmarketpy.economics.seasonality.Seasonality" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does simple seasonality calculations on data.</p>
+<dl class="method">
+<dt id="finmarketpy.economics.seasonality.Seasonality.adjust_rolling_seasonality">
+<code class="sig-name descname">adjust_rolling_seasonality</code><span class="sig-paren">(</span><em class="sig-param">data_frame</em>, <em class="sig-param">window=None</em>, <em class="sig-param">likely_period=None</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.seasonality.Seasonality.adjust_rolling_seasonality" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjusted time series which exhibit strong seasonality. If time series do not exhibit any seasonality will return
+NaN values.</p>
+<dl class="simple">
+<dt>data_frame<span class="classifier">DataFrame</span></dt><dd><p>Data to be seasonally adjusted</p>
+</dd>
+<dt>window<span class="classifier">int</span></dt><dd><p>Number of points to use in our rolling window (eg. for monthly data 60 = 5 year * 12 months)</p>
+</dd>
+<dt>likely_period</dt><dd><p>What is the likely period of the data (eg. for monthly data, likely to be 12, for daily, likely to be 252)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>DataFrame</dt><dd><p>Time series seasonally adjusted</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.seasonality.Seasonality.bus_day_of_month_seasonality">
+<code class="sig-name descname">bus_day_of_month_seasonality</code><span class="sig-paren">(</span><em class="sig-param">data_frame, month_list=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], cum=True, cal='FX', partition_by_month=True, add_average=False, price_index=False, resample_freq='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.seasonality.Seasonality.bus_day_of_month_seasonality" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.seasonality.Seasonality.bus_day_of_month_seasonality_from_prices">
+<code class="sig-name descname">bus_day_of_month_seasonality_from_prices</code><span class="sig-paren">(</span><em class="sig-param">data_frame, month_list=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], cum=True, cal='FX', partition_by_month=True, add_average=False, resample_freq='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.seasonality.Seasonality.bus_day_of_month_seasonality_from_prices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.seasonality.Seasonality.monthly_seasonality">
+<code class="sig-name descname">monthly_seasonality</code><span class="sig-paren">(</span><em class="sig-param">data_frame</em>, <em class="sig-param">cum=True</em>, <em class="sig-param">add_average=False</em>, <em class="sig-param">price_index=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.seasonality.Seasonality.monthly_seasonality" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.seasonality.Seasonality.monthly_seasonality_from_prices">
+<code class="sig-name descname">monthly_seasonality_from_prices</code><span class="sig-paren">(</span><em class="sig-param">data_frame</em>, <em class="sig-param">cum=True</em>, <em class="sig-param">add_average=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.seasonality.Seasonality.monthly_seasonality_from_prices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="finmarketpy.economics.seasonality.Seasonality.time_of_day_seasonality">
+<code class="sig-name descname">time_of_day_seasonality</code><span class="sig-paren">(</span><em class="sig-param">data_frame</em>, <em class="sig-param">years=False</em><span class="sig-paren">)</span><a class="headerlink" href="#finmarketpy.economics.seasonality.Seasonality.time_of_day_seasonality" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="techindicators.html" class="btn btn-neutral float-right" title="Technical Indicators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="report.html" class="btn btn-neutral float-left" title="Report" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Cuemacro
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
